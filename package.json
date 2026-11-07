@@ -1,0 +1,43 @@
+{
+  "name": "leonardo-banoy-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Portafolio y CV web de Leonardo Banoy, tecnólogo en desarrollo de software.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "cv": "node scripts/generate-cv.mjs",
+    "assets": "node scripts/generate-assets.mjs",
+    "check:cv": "node scripts/check-cv.mjs",
+    "check:dist": "node scripts/check-dist.mjs",
+    "verify": "npm run typecheck && npm run lint && npm run test && npm run check:cv && npm run build && npm run check:dist"
+  },
+  "dependencies": {
+    "@fontsource-variable/ibm-plex-sans": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^10.13.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^16.5.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.72.0",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}

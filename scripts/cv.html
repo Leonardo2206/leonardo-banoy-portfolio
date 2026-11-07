@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Leonardo Banoy López — CV</title>
+    <style>
+      :root {
+        --ink: #151710;
+        --muted: #5e6257;
+        --line: #d9d7cd;
+        --accent: #637a1e;
+        --paper: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        color: var(--ink);
+        background: #d9d5c9;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        display: flex;
+        flex-direction: column;
+        width: 210mm;
+        min-height: 297mm;
+        margin: 12mm auto;
+        padding: 11.5mm 15mm 8mm;
+        background: var(--paper);
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+      }
+
+      .mono {
+        font-family: Consolas, "SFMono-Regular", "Courier New", monospace;
+      }
+
+      /* Header ------------------------------------------------------------- */
+
+      .header {
+        padding-bottom: 4mm;
+        border-bottom: 1.2px solid var(--ink);
+      }
+
+      .name {
+        margin: 0;
+        font-size: 31pt;
+        font-weight: 650;
+        letter-spacing: -1.5px;
+        line-height: 0.94;
+      }
+
+      .role {
+        margin-top: 2.6mm;
+        color: var(--accent);
+        font-family: Consolas, monospace;
+        font-size: 8.4pt;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .tagline {
+        max-width: 150mm;
+        margin-top: 2.4mm;
+        color: var(--muted);
+        font-size: 9.6pt;
+        line-height: 1.5;
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5mm 4mm;
+        margin-top: 3mm;
+        font-family: Consolas, monospace;
+        font-size: 7.3pt;
+        line-height: 1.5;
+      }
+
+      .contact span,
+      .contact a {
+        display: inline-flex;
+        align-items: center;
+        gap: 1.1mm;
+      }
+
+      .contact .dot {
+        width: 1.3mm;
+        height: 1.3mm;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      /* Summary ------------------------------------------------------------ */
+
+      .summary {
+        display: grid;
+        grid-template-columns: 25mm minmax(0, 1fr);
+        gap: 6mm;
+        padding: 3.4mm 0;
+        border-bottom: 0.8px solid var(--line);
+      }
+
+      .section-label {
+        margin: 0;
+        color: var(--muted);
+        font-family: Consolas, monospace;
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
+        line-height: 1.4;
+        text-transform: uppercase;
+      }
+
+      .summary p {
+        margin: 0;
+        font-size: 9.3pt;
+        line-height: 1.55;
+      }
+
+      /* Sections ----------------------------------------------------------- */
+
+      .section {
+        padding-top: 3.1mm;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 6mm;
+        padding-bottom: 1.8mm;
+        border-bottom: 0.8px solid var(--line);
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: 12.5pt;
+        font-weight: 650;
+        letter-spacing: -0.2px;
+      }
+
+      .section-head span {
+        color: var(--muted);
+        font-family: Consolas, monospace;
+        font-size: 6.3pt;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      /* Experience --------------------------------------------------------- */
+
+      .experience {
+        padding: 2.8mm 0 2.6mm;
+        border-bottom: 0.7px solid var(--line);
+      }
+
+      .experience-top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 5mm;
+      }
+
+      .experience h3 {
+        margin: 0;
+        font-size: 10.6pt;
+        font-weight: 650;
+        letter-spacing: -0.15px;
+      }
+
+      .experience-top > span {
+        flex-shrink: 0;
+        color: var(--muted);
+        font-family: Consolas, monospace;
+        font-size: 6.4pt;
+        letter-spacing: 0.04em;
+      }
+
+      .experience ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9mm;
+        margin: 1.5mm 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .experience li {
+        display: grid;
+        grid-template-columns: 3.5mm minmax(0, 1fr);
+        color: var(--muted);
+        font-size: 8.5pt;
+        line-height: 1.45;
+      }
+
+      .experience li > span {
+        color: var(--accent);
+        font-family: Consolas, monospace;
+      }
+
+      /* Projects ----------------------------------------------------------- */
+
+      .project {
+        padding: 2.2mm 0;
+        border-bottom: 0.7px solid var(--line);
+      }
+
+      .project-top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 5mm;
+      }
+
+      .project-name {
+        margin: 0;
+        font-size: 10.7pt;
+        font-weight: 650;
+        letter-spacing: -0.15px;
+      }
+
+      .project-name .type {
+        margin-left: 2mm;
+        color: var(--muted);
+        font-family: Consolas, monospace;
+        font-size: 6.2pt;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .project-links {
+        display: flex;
+        flex-shrink: 0;
+        gap: 3mm;
+        color: var(--accent);
+        font-family: Consolas, monospace;
+        font-size: 6.1pt;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+
+      .project p.project-summary {
+        margin: 1.1mm 0 0;
+        color: var(--muted);
+        font-size: 8.4pt;
+        line-height: 1.45;
+      }
+
+      .stack-line {
+        margin: 1.1mm 0 0;
+        color: var(--ink);
+        font-family: Consolas, monospace;
+        font-size: 6.6pt;
+        letter-spacing: 0.01em;
+      }
+
+      .stack-line span {
+        color: var(--accent);
+      }
+
+      /* Bottom grid -------------------------------------------------------- */
+
+      .bottom {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 8mm;
+        padding-top: 3.2mm;
+      }
+
+      .block + .block {
+        margin-top: 3.6mm;
+      }
+
+      .block h2 {
+        margin: 0 0 2mm;
+        padding-bottom: 1.4mm;
+        border-bottom: 0.8px solid var(--line);
+        font-family: Consolas, monospace;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .skill-row {
+        display: grid;
+        grid-template-columns: 22mm minmax(0, 1fr);
+        gap: 2mm;
+        padding: 1.1mm 0;
+        border-bottom: 0.5px solid #efeee8;
+        font-size: 7.9pt;
+        line-height: 1.42;
+      }
+
+      .skill-row dt {
+        color: var(--muted);
+        font-family: Consolas, monospace;
+        font-size: 6.3pt;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .skill-row dd {
+        margin: 0;
+      }
+
+      .plain {
+        margin: 0 0 1.2mm;
+        color: var(--muted);
+        font-size: 8pt;
+        line-height: 1.45;
+      }
+
+      .plain strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .education-item {
+        padding: 0 0 1.8mm;
+        border-bottom: 0.5px solid #efeee8;
+      }
+
+      .education-item + .education-item {
+        padding-top: 1.8mm;
+      }
+
+      .education-item h3 {
+        margin: 0;
+        font-size: 8.8pt;
+        font-weight: 650;
+        line-height: 1.32;
+      }
+
+      .education-item p {
+        margin: 0.7mm 0 0;
+        color: var(--muted);
+        font-size: 7.6pt;
+        line-height: 1.42;
+      }
+
+      .cert-group {
+        margin-top: 2.2mm;
+        padding-top: 1.8mm;
+        border-top: 0.5px solid #efeee8;
+      }
+
+      .cert-group h3 {
+        margin: 0 0 1.2mm;
+        color: var(--muted);
+        font-family: Consolas, monospace;
+        font-size: 6.3pt;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .cert-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.1mm;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .cert-list li {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 3mm;
+        color: var(--muted);
+        font-size: 7.5pt;
+        line-height: 1.4;
+      }
+
+      .cert-list strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .cert-list span {
+        flex-shrink: 0;
+        color: var(--accent);
+        font-family: Consolas, monospace;
+        font-size: 6.2pt;
+        letter-spacing: 0.04em;
+      }
+
+      /* Footer ------------------------------------------------------------- */
+
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5mm;
+        margin-top: auto;
+        padding-top: 2.6mm;
+        border-top: 1.2px solid var(--ink);
+        color: var(--muted);
+        font-family: Consolas, monospace;
+        font-size: 5.8pt;
+        letter-spacing: 0.04em;
+        line-height: 1.5;
+        text-transform: uppercase;
+      }
+
+      .footer strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .page {
+          margin: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <h1 class="name">Leonardo Banoy López</h1>
+        <p class="role">Tecnólogo en Desarrollo de Software</p>
+        <p class="tagline">
+          Soporte y automatización digital con GoHighLevel, más desarrollo
+          full-stack con TypeScript, Node.js y React. APIs REST, autenticación y
+          datos consistentes.
+        </p>
+        <div class="contact mono">
+          <a href="mailto:leonardobanoy48@gmail.com">
+            <span class="dot"></span> leonardobanoy48@gmail.com
+          </a>
+          <a href="tel:+573219065254">+57 321 906 5254</a>
+          <span>Villavicencio, Colombia</span>
+          <a href="https://github.com/Leonardo2206">github.com/Leonardo2206</a>
+          <a href="https://www.linkedin.com/in/leonardo-banoy-lopez-68a92a2b0/">
+            linkedin.com/in/leonardo-banoy-lopez
+          </a>
+        </div>
+      </header>
+
+      <section class="summary">
+        <h2 class="section-label">Perfil</h2>
+        <p>
+          Tecnólogo en Desarrollo de Software (UNIMINUTO, 2026) y estudiante de
+          Ingeniería de Software. Trabajo en soporte técnico y automatización de
+          procesos con GoHighLevel, y construyo APIs REST y aplicaciones
+          full-stack con TypeScript, Node.js, React y PostgreSQL o MongoDB. Mis
+          proyectos están públicos, documentados y desplegados.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Experiencia</h2>
+          <span>Octubre 2025 — Enero 2026</span>
+        </div>
+
+        <article class="experience">
+          <div class="experience-top">
+            <h3>Soporte y Desarrollo Digital (GHL)</h3>
+            <span>CopyAdopters · Villavicencio, Colombia</span>
+          </div>
+          <ul>
+            <li>
+              <span aria-hidden="true">→</span>
+              Gestioné y configuré flujos automatizados, formularios y procesos
+              digitales utilizando GoHighLevel (GHL).
+            </li>
+            <li>
+              <span aria-hidden="true">→</span>
+              Brindé soporte técnico en embudos de venta y automatizaciones para
+              optimizar procesos internos.
+            </li>
+            <li>
+              <span aria-hidden="true">→</span>
+              Apoyé la mejora de procesos mediante herramientas digitales y
+              automatización.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Proyectos seleccionados</h2>
+          <span>Código y demos públicas</span>
+        </div>
+
+        <article class="project">
+          <div class="project-top">
+            <h3 class="project-name">
+              Libra <span class="type">Full-stack · Individual · Desde octubre de 2026</span>
+            </h3>
+            <div class="project-links">
+              <a href="https://crud-libros-express-ts.vercel.app/">Demo ↗</a>
+              <a href="https://github.com/Leonardo2206/crud-libros-express-ts">Código ↗</a>
+            </div>
+          </div>
+          <p class="project-summary">
+            API REST con Express 5 y PostgreSQL (Supabase); catálogo público y
+            panel privado para administrar libros. JWT en cookie httpOnly,
+            migraciones SQL versionadas, Zod, subida de portadas y pruebas con
+            Vitest + Supertest.
+          </p>
+          <p class="stack-line">
+            TypeScript <span>·</span> Express 5 <span>·</span> PostgreSQL
+            <span>·</span> React 19 <span>·</span> Supabase
+          </p>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <h3 class="project-name">
+              Ticket System <span class="type">Full-stack · Individual · Feb – ago 2026</span>
+            </h3>
+            <div class="project-links">
+              <a href="https://ticket-system-backend-six.vercel.app/tickets">Demo ↗</a>
+              <a href="https://github.com/Leonardo2206/ticket-system-backend">Código ↗</a>
+            </div>
+          </div>
+          <p class="project-summary">
+            API REST con Express 5 y MongoDB para gestionar tickets con roles
+            admin, agent y user. Autenticación JWT, validación con Zod, rate
+            limiting en acceso y documentación Swagger en desarrollo. Frontend
+            en React + Tailwind con rutas protegidas.
+          </p>
+          <p class="stack-line">
+            TypeScript <span>·</span> Express 5 <span>·</span> MongoDB
+            <span>·</span> Mongoose <span>·</span> JWT <span>·</span> React
+          </p>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <h3 class="project-name">
+              EcommerceGym <span class="type">Full-stack · Universitario · Mar – may 2025</span>
+            </h3>
+            <div class="project-links">
+              <a href="https://ecommerce-frontend-nine-iota.vercel.app/">Demo ↗</a>
+              <a href="https://github.com/Leonardo2206/EcommerceGym">Código ↗</a>
+            </div>
+          </div>
+          <p class="project-summary">
+            Catálogo, carrito y autenticación con Next.js 15, API REST en
+            Express y MongoDB, más un panel de administración. El checkout es
+            una demostración: no procesa pagos reales.
+          </p>
+          <p class="stack-line">
+            Next.js <span>·</span> React <span>·</span> Express
+            <span>·</span> MongoDB <span>·</span> Tailwind CSS
+          </p>
+        </article>
+      </section>
+
+      <div class="bottom">
+        <div>
+          <section class="block">
+            <h2>Stack</h2>
+            <dl>
+              <div class="skill-row">
+                <dt>Lenguajes</dt>
+                <dd>TypeScript, JavaScript, SQL, HTML, CSS</dd>
+              </div>
+              <div class="skill-row">
+                <dt>Backend</dt>
+                <dd>
+                  Node.js, Express 5, REST, JWT, Zod, bcrypt, Vitest, Supertest
+                </dd>
+              </div>
+              <div class="skill-row">
+                <dt>Frontend</dt>
+                <dd>React, Next.js, Vite, Tailwind CSS</dd>
+              </div>
+              <div class="skill-row">
+                <dt>Datos</dt>
+                <dd>PostgreSQL, Supabase, MongoDB, Mongoose</dd>
+              </div>
+              <div class="skill-row">
+                <dt>Entrega</dt>
+                <dd>Git, GitHub, Vercel, Render, Swagger, GoHighLevel</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="block">
+            <h2>Idiomas y disponibilidad</h2>
+            <p class="plain"><strong>Idiomas:</strong> Español nativo</p>
+            <p class="plain">
+              <strong>Disponibilidad:</strong> Remoto, híbrido o presencial ·
+              tiempo completo o medio tiempo
+            </p>
+          </section>
+        </div>
+
+        <section class="block">
+          <h2>Formación</h2>
+          <div class="education-item">
+            <h3>Tecnólogo en Desarrollo de Software</h3>
+            <p>UNIMINUTO · Villavicencio · 2023 — 2026 · Graduado</p>
+          </div>
+          <div class="education-item">
+            <h3>Ingeniería de Software</h3>
+            <p>UNIMINUTO · Villavicencio · En curso</p>
+          </div>
+
+          <div class="cert-group">
+            <h3>Certificaciones · 2025</h3>
+            <ul class="cert-list">
+              <li>
+                <strong>Full Stack Developer Certified Specialist</strong>
+                <span>FSDCS</span>
+              </li>
+              <li>
+                <strong>Back End Developer Certified Professional</strong>
+                <span>BDCP</span>
+              </li>
+              <li>
+                <strong>Front End Developer Certified Associate</strong>
+                <span>FDCA</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <span><strong>CV</strong> · Leonardo Banoy López · 2026</span>
+        <span>Demos y código: github.com/Leonardo2206</span>
+      </footer>
+    </main>
+  </body>
+</html>
